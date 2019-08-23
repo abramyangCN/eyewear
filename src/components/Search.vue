@@ -1,6 +1,8 @@
 <template>
   <div :class="searchClass">
+    <div class="logo">
     <img src="../assets/logo.png" class="logo" alt />
+    </div>
     <div class="search-outercontainer">
       <transition name="fade">
         <div class="search-container" v-show="displayStatus == 1">
@@ -72,7 +74,7 @@ export default {
   height: calc(100% - 66.87vw);
 }
 .search {
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .logo {
   display: block;

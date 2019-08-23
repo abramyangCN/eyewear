@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" :class="herobannerClass" src="./assets/herobanner.png" />
+    <div class="herobanner">
+      <img alt="Vue logo" :class="herobannerClass" src="./assets/herobanner.png" />
+    </div>
     <search />
   </div>
 </template>

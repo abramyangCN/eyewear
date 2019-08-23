@@ -180,14 +180,14 @@ export default {
       if (!this.onlyProvince || this.hideArea) {
         this.$set(data, 'area', this.setData(this.currentArea, this.currentCity))
       }
-
-      this.$emit(name, data)
+      if(!this.currentCity){
+        this.$emit(name, data)
+      }
     },
     getCities() {
       this.currentCity = this.placeholders.city
       this.currentArea = this.placeholders.area
       this.cities = this.determineValue(this.currentProvince, this.placeholders.province)
-      this.cleanList('areas')
       if (this.cities.length === 0) {
         this.emit('selected')
         this.tab = 1
