@@ -1,28 +1,74 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <img alt="Vue logo" :class="herobannerClass" src="./assets/herobanner.png" />
+    <search />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+// import HeroBanner from "./components/HeroBanner.vue";
+import Search from "./components/Search.vue";
 
 export default {
   name: "app",
   components: {
-    HelloWorld
+    Search
+  },
+  data() {
+    return {
+      herobannerBeforeSearch: "herobanner-before-search",
+      herobannerAfterSearch: "herobanner-before-search herobanner-after-search",
+      herobannerClass: "herobanner-before-search"
+    };
+  },
+  methods: {
+    searchOpenPicker() {
+      this.herobannerClass = this.herobannerAfterSearch;
+    },
+    searchClosePicker() {
+      this.herobannerClass = this.herobannerBeforeSearch;
+    }
   }
 };
 </script>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+}
+body,
+html {
+  width: 100%;
+  height: 100%;
+  font-size: 0.016vw;
+  overflow-x: hidden;
+}
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  height: 100%;
+}
+.hero-banner {
+  height: calc(100% - 66.87vw);
+  background: red;
+}
+.herobanner-before-search {
+  display: block;
+  width: auto;
+  height: 130vw;
+  margin-left: 50vw;
+  transform: translate(-50%, 0);
+  transition: all 0.3s ease 0.3s;
+}
+.herobanner-after-search {
+  display: block;
+  /* width: 100%; */
+  height: 66.87vw;
+  transform: scaleX(100%);
+  transition: all 0.3s ease 0.3s;
 }
 </style>
