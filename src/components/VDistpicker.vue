@@ -71,7 +71,7 @@
 </template>
 
 <script>
-import DISTRICTS from '../data/districts.js';
+import DISTRICTS from './data/districts.js';
 
 const DEFAULT_CODE = 100000;
 
