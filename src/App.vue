@@ -73,7 +73,7 @@ html {
 .herobanner-after-search {
   display: block;
   /* width: 100%; */
-  height: 66.87vw;
+  height: 40vh;
   transform: scaleX(100%);
   transition: all 0.3s ease 0.3s;
 }
