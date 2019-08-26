@@ -24,7 +24,7 @@ export default {
       herobannerClass: "herobanner-before-search"
     };
   },
-  mounted () {
+  mounted() {
     this.vConsole = new VConsole();
   },
   methods: {
@@ -47,7 +47,7 @@ body,
 html {
   width: 100%;
   height: 100%;
-  font-size: 0.016vw;
+  /* font-size: 0.016vw; */
   overflow-x: hidden;
 }
 #app {

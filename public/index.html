@@ -7,6 +7,25 @@
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>huawei-eyewear</title>
     <script charset="utf-8" src="https://map.qq.com/api/js?v=2.exp&key=7D2BZ-L3CWK-4ATJZ-A7LRN-4RWO2-ECBOG"></script>
+    <script type="text/javascript">
+      function t() {
+          n.style.fontSize = 12 * e().width / 375 + "px"
+      }
+
+      function e() {
+          return {
+              width: document.documentElement.clientWidth || document.body.clientWidth,
+              height: document.documentElement.clientHeight || document.body.clientHeight
+          }
+      }
+      var n = document.querySelector("html");
+      t();
+      var i = 375;
+      window.addEventListener("resize",function(){
+          window.outerWidth != i && (i = e().width,
+              n.style.fontSize = 12 * i / 375 + "px")
+      });
+  </script>
   </head>
   <body>
     <noscript>
