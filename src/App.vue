@@ -60,7 +60,7 @@ html {
 }
 .herobanner {
   /* height: calc(100% - 66.87vw); */
-  margin-bottom: 2.28em;
+  margin-bottom: 1.5em;
 }
 .herobanner-before-search {
   display: block;
