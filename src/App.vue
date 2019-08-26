@@ -65,7 +65,7 @@ html {
 .herobanner-before-search {
   display: block;
   width: auto;
-  height: 130vw;
+  height: 73vh;
   margin-left: 50vw;
   transform: translate(-50%, 0);
   transition: all 0.3s ease 0.3s;
