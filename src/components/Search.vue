@@ -170,7 +170,7 @@ export default {
 }
 .logo {
   display: block;
-  margin: 8.27vw auto;
+  margin: 1.28em auto;
   width: 70.4%;
 }
 .search-bar {
@@ -244,7 +244,7 @@ export default {
 .book-date {
   position: relative;
   color: #58595b;
-  font-size: 1.5625rem;
+  font-size: 1rem;
   line-height: 1.2;
   text-align: center;
   width: 100%;
@@ -256,7 +256,7 @@ export default {
   z-index: 2;
   padding: 0 1em;
   line-height: 2;
-  border-bottom: #000 1px solid
+  border-bottom: #000 1px solid;
 }
 .book-date span:last-child {
   display: inline-block;
@@ -264,7 +264,7 @@ export default {
   z-index: 2;
   padding: 0 1em;
   line-height: 2;
-  border-bottom: none
+  border-bottom: none;
 }
 /* .book-date:after {
   content: "";
@@ -281,7 +281,7 @@ export default {
   width: 90.8vw;
   margin: 0 auto;
   border: #f1f3f3 2px solid;
-  height: 55vw;
+  height: 50vw;
 }
 .q-map-label {
   width: auto;
@@ -291,7 +291,7 @@ export default {
 .q-map-label-btn {
   display: inline-block;
   padding: 0.9em;
-  font-size: 1.375rem;
+  font-size: 0.917rem;
   line-height: 1.6;
   color: #000;
 }
