@@ -10,6 +10,7 @@
 <script>
 // import HeroBanner from "./components/HeroBanner.vue";
 import Search from "./components/Search.vue";
+import VConsole from "vconsole";
 
 export default {
   name: "app",
@@ -22,6 +23,9 @@ export default {
       herobannerAfterSearch: "herobanner-before-search herobanner-after-search",
       herobannerClass: "herobanner-before-search"
     };
+  },
+  mounted () {
+    this.vConsole = new VConsole();
   },
   methods: {
     searchOpenPicker() {

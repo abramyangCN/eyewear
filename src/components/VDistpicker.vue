@@ -23,7 +23,7 @@
           <option v-for="(item, index) in areas "
                   :value="item"
                   :key="index">
-            {{ item }}
+                  {{ item }}
           </option>
         </select>
       </template>
@@ -34,7 +34,7 @@
           <li :class="{'active': tab === 1}" @click="resetProvince">{{ currentProvince && !staticPlaceholder ? currentProvince : placeholders.province }}</li>
           <template v-if="!onlyProvince">
             <li v-if="showCityTab" :class="{'active': tab === 2}" @click="resetCity">{{  currentCity && !staticPlaceholder ? currentCity : placeholders.city }}</li>
-            <li v-if="showAreaTab && !hideArea" :class="{'active': tab === 3}">{{ currentArea && !staticPlaceholder ? currentArea : placeholders.area }}</li>
+            <li v-if="showAreaTab && !hideArea" :class="{'active': tab === 3}">{{ currentArea && !staticPlaceholder ? currentArea[0] : placeholders.area }}</li>
           </template>
         </ul>
       </div>
@@ -53,7 +53,7 @@
                 :class="{'active': item === currentCity}"
                 @click="chooseCity(item)"
                 :key="index">
-              {{ item }}
+                {{ item }}
             </li>
           </ul>
           <ul v-if="tab === 3 && !hideArea">
@@ -61,7 +61,7 @@
                 :class="{'active': item === currentArea}"
                 @click="chooseArea(item)"
                 :key="index">
-              {{ item }}
+                {{ item[0] }}
             </li>
           </ul>
         </template>
@@ -91,7 +91,7 @@ export default {
         return {
           province: '省份和地区',
           city: '市',
-          area: '门店信息',
+          area: ['门店信息'],
         }
       }
     },
@@ -180,9 +180,9 @@ export default {
       if (!this.onlyProvince || this.hideArea) {
         this.$set(data, 'area', this.setData(this.currentArea, this.currentCity))
       }
-      if(!this.currentCity){
-        this.$emit(name, data)
-      }
+
+      this.$emit(name, data)
+
     },
     getCities() {
       this.currentCity = this.placeholders.city
@@ -279,7 +279,9 @@ export default {
       for(let x in DISTRICTS) {
         for(let y in DISTRICTS[x]) {
           if(code === parseInt(y)) {
-            return DISTRICTS[x][y]
+            console.log(DISTRICTS[x][y]);
+            let districts = DISTRICTS[x][y]
+            return districts[0]
           }
         }
       }
@@ -366,11 +368,12 @@ export default {
   }
   .address-container {
     background-color: #fff;
-
     ul {
       height: 100%;
       overflow: auto;
-
+      & li:nth-of-type(odd){ 
+        background:#f1f3f3;
+        }
       li {
         padding: 8px 10px;
         border-top: 1px solid #f6f6f6;
@@ -378,6 +381,7 @@ export default {
         &.active {
           color: #52697f;
         }
+        
       }
     }
   }
