@@ -171,7 +171,7 @@ export default {
 }
 .logo {
   display: block;
-  margin: 1.28em auto;
+  margin: 2.28em auto;
   width: 70.4%;
 }
 .search-bar {
@@ -239,7 +239,7 @@ export default {
   font-weight: 500;
 }
 .address-container {
-  height: calc(100vh - 113vw);
+  height: calc(100vh - 107vw);
   overflow-y: auto;
 }
 .book-date {
