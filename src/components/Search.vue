@@ -166,6 +166,7 @@ export default {
   height: calc(100% - 66.87vw);
 }
 .search {
+  position: fixed;
   /* overflow: hidden; */
 }
 .logo {
