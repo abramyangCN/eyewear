@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="hero-banner">
+    <div class="herobanner">
       <img alt="Vue logo" :class="herobannerClass" src="./assets/herobanner.png" />
     </div>
     <search />
@@ -59,7 +59,8 @@ html {
   height: 100vh;
 }
 .herobanner {
-  height: calc(100% - 66.87vw);
+  /* height: calc(100% - 66.87vw); */
+  margin-bottom: 2.28em;
 }
 .herobanner-before-search {
   display: block;

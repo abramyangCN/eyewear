@@ -163,15 +163,16 @@ export default {
 
 <style>
 .search-before {
-  height: calc(100% - 66.87vw);
+  /* height: calc(100% - 66.87vw); */
 }
 .search {
-  position: fixed;
+  /* position: fixed; */
   /* overflow: hidden; */
 }
 .logo {
   display: block;
-  margin: 2.28em auto;
+  margin: 0 auto;
+  margin-bottom: 2.28em;
   width: 70.4%;
 }
 .search-bar {
