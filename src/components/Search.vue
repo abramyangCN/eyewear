@@ -283,7 +283,7 @@ export default {
   width: 90.8vw;
   margin: 0 auto;
   border: #f1f3f3 2px solid;
-  height: 28vh;
+  height: 26vh;
 }
 .q-map-label {
   width: auto;
