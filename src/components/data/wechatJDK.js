@@ -1,11 +1,12 @@
 import axios from 'axios'
-const getWechatJsConfig = () => {
-  return axios.get(`/api/getWechatJsConfig`)
+const getWechatJsConfig = (params) => {
+  return axios.get(`/wuhan/api/getWechatJsConfig`,{params})
 }
 
 export const setWechatConfig = () => {
 	getWechatJsConfig ({"url": window.location.href.split('#')[0]}).then(res => {
 		try{
+      res = res.data;
 	    wx.config({
 	      debug: false,
 	      appId: res.appId,
@@ -22,9 +23,9 @@ export const setWechatConfig = () => {
 			return false
 		}
     const shareData = { title: '', desc: '', img: '', link: '' };
-    shareData.title = 'nova时光邮轮，邂逅旧时光';
-    shareData.desc = '原价228元，nova星人戳链接免费报名，开启穿越之旅';
-    shareData.img = 'https://site.fphis.com/wuhan/img/fx1.jpg';
+    shareData.title = 'GM华为眼镜';
+    shareData.desc = 'Gentle Monster Huawei Eyewear';
+    shareData.img = 'https://site.fphis.com/huaweieyewear/img/fx1.jpg';
     shareData.link = window.location.href.split('#')[0];
     wx.ready(function () {
       //分享到朋友圈

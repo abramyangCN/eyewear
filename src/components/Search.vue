@@ -160,11 +160,11 @@ export default {
       }, 100);
       qq.maps.event.addListener(this.label, "click", function() {
         wx.openLocation({
-          latitude: _self.qMapPoint[0], // 纬度，浮点数，范围为90 ~ -90
-          longitude: _self.qMapPoint[1], // 经度，浮点数，范围为180 ~ -180。
+          latitude: parseFloat(_self.qMapPoint[0]), // 纬度，浮点数，范围为90 ~ -90
+          longitude: parseFloat(_self.qMapPoint[1]), // 经度，浮点数，范围为180 ~ -180。
           name: _self.store, // 位置名
           address: "", // 地址详情说明
-          scale: 1, // 地图缩放级别,整形值,范围从1~28。默认为最大
+          scale: 16, // 地图缩放级别,整形值,范围从1~28。默认为最大
           infoUrl: "" // 在查看位置界面底部显示的超链接,可点击跳转
         });
       });
@@ -185,7 +185,7 @@ export default {
   display: block;
   margin: 0 auto;
   margin-bottom: 1.5em;
-  width: 70.4%;
+  width: 70.4vw;
 }
 .search-bar {
   position: relative;
