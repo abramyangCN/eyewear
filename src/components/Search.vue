@@ -35,8 +35,8 @@
             />
           </div>
           <div class="book-date">
-            <span>{{address}}</span>
-            <span>8月31日开始预约</span>
+            <p>{{address}}</p>
+            <p>8月31日开始预约</p>
           </div>
           <div id="qMapContainer" class="q-map-container"></div>
         </div>
@@ -44,7 +44,9 @@
     </div>
     <div class="q-map-label q-map-label-copy" id="qMapLabel">
       <div class="q-map-label-title">{{store}}</div>
-      <div class="q-map-label-btn">导航</div>
+      <div class="q-map-label-btn">
+        <img src="../assets/arrow.png" alt /> 导航
+      </div>
     </div>
   </div>
 </template>
@@ -52,6 +54,7 @@
 <script>
 import VDistpicker from "./VDistpicker.vue";
 import markerIcon from "../assets/marker.png";
+import arrowIcon from "../assets/arrow.png";
 import { setTimeout } from "timers";
 
 export default {
@@ -101,7 +104,7 @@ export default {
         zoom: 16, // 地图缩放级别
         mapTypeControl: false,
         scaleControl: false,
-        // zoomControl: false,
+        zoomControl: false,
         mapStyleId: "style1" // 该key绑定的style1对应于经典地图样式，若未绑定将弹出无权限提示窗
       });
       this.marker = new qq.maps.Marker({
@@ -122,7 +125,9 @@ export default {
         content:
           '<div class="q-map-label"><div class="q-map-label-title">' +
           this.store +
-          '</div><div class="q-map-label-btn">导航</div></div>'
+          '</div><div class="q-map-label-btn"><img src="' +
+          arrowIcon +
+          '" alt /> 导航 </div></div>'
       });
       this.label.setOptions({
         style: {
@@ -154,7 +159,14 @@ export default {
         this.qMap.panBy(0, -document.getElementById("qMapLabel").offsetHeight);
       }, 100);
       qq.maps.event.addListener(this.label, "click", function() {
-        alert("aaa");
+        wx.openLocation({
+          latitude: _self.qMapPoint[0], // 纬度，浮点数，范围为90 ~ -90
+          longitude: _self.qMapPoint[1], // 经度，浮点数，范围为180 ~ -180。
+          name: _self.store, // 位置名
+          address: "", // 地址详情说明
+          scale: 1, // 地图缩放级别,整形值,范围从1~28。默认为最大
+          infoUrl: "" // 在查看位置界面底部显示的超链接,可点击跳转
+        });
       });
     }
   }
@@ -249,20 +261,26 @@ export default {
   font-size: 1rem;
   line-height: 1.2;
   text-align: center;
-  width: 100%;
   margin: 1.28em auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  padding: 0 2em;
 }
-.book-date span {
-  display: inline-block;
-  background: #fff;
+.book-date p {
   z-index: 2;
   padding: 0 1em;
   line-height: 2;
   border-bottom: #000 1px solid;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
-.book-date span:last-child {
-  display: inline-block;
-  background: #fff;
+.book-date p:last-child {
   z-index: 2;
   padding: 0 1em;
   line-height: 2;
@@ -302,6 +320,14 @@ export default {
   background-color: #cf152d;
   color: #fff;
 }
+
+.q-map-label-btn img {
+  height: 0.917rem;
+  display: inline-block;
+  margin-bottom: -0.1em;
+  line-height: 1.6;
+}
+
 .q-map-label-copy {
   position: absolute;
   z-index: -99;

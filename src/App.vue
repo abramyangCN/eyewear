@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="herobanner">
-      <img alt="Vue logo" :class="herobannerClass" src="./assets/herobanner.png" />
+      <img :class="herobannerClass" src="./assets/herobanner.png" />
     </div>
     <search />
   </div>
@@ -10,7 +10,7 @@
 <script>
 // import HeroBanner from "./components/HeroBanner.vue";
 import Search from "./components/Search.vue";
-import VConsole from "vconsole";
+import { setWechatConfig } from "./components/data/wechatJDK.js";
 
 export default {
   name: "app",
@@ -25,7 +25,7 @@ export default {
     };
   },
   mounted() {
-    this.vConsole = new VConsole();
+    setWechatConfig();
   },
   methods: {
     searchOpenPicker() {
@@ -49,6 +49,7 @@ html {
   height: 100%;
   /* font-size: 0.016vw; */
   overflow-x: hidden;
+  background: #fff;
 }
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
